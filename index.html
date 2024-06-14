@@ -333,8 +333,9 @@
     <script>
                    
         function carregaProfile(){                
-            str = '';        
-            let perfil = profiles;            
+            str = '';  
+          
+            let perfil = response ;            
                 
                 str += `<div class="row">
                             <div class="col-md-4">
@@ -360,37 +361,39 @@
             
             document.getElementById("profile").innerHTML = str;  
                   
-        }        
-        carregaGitProfile(carregaProfile)
+        } 
+        let retorno = principalProfile().then(console.log());     
+        console.log("REtorno:" + retorno.bio);
+        //carregaGitProfile(carregaProfile)
        window.addEventListener('load',carregaProfile)
         
 
-        function carregaEmailProfile(){
-            strTextoHTML = '';
+        // function carregaEmailProfile(){
+        //     strTextoHTML = '';
             
-            //for(let i=0; i < emails.length; i++){ 
+        //     //for(let i=0; i < emails.length; i++){ 
                 
-                if(emails.length > 0){
-                   let email = emails[0];       
-                   strTextoHTML += `<div class="row">
-                                        <div class="col-md-12">
-                                            <div class="card-body">
-                                                <p class="card-text"><b>e-mail: </b>${email.email}</p>                        
-                                                <p class="card-text"><b>Linkedin: </b>https://www.linkedin.com/in/christianobarbosa</p>
-                                            </div>
-                                        </div>
-                                    </div>`
+        //         if(emails.length > 0){
+        //            let email = emails[0];       
+        //            strTextoHTML += `<div class="row">
+        //                                 <div class="col-md-12">
+        //                                     <div class="card-body">
+        //                                         <p class="card-text"><b>e-mail: </b>${email.email}</p>                        
+        //                                         <p class="card-text"><b>Linkedin: </b>https://www.linkedin.com/in/christianobarbosa</p>
+        //                                     </div>
+        //                                 </div>
+        //                             </div>`
                               
-                }else {
-                         strTextoHTML += '<p class="card-text">No email found</p>';
-                }
-            //}          
-            document.getElementById("email").innerHTML = strTextoHTML;
-            console.log(emails)
-        }
-        carregaEmail(carregaEmailProfile)     
+        //         }else {
+        //                  strTextoHTML += '<p class="card-text">No email found</p>';
+        //         }
+        //     //}          
+        //     document.getElementById("email").innerHTML = strTextoHTML;
+        //     console.log(emails)
+        // }
+        // carregaEmail(carregaEmailProfile)     
         
-       window.addEventListener('load', carregaEmailProfile)
+    //    window.addEventListener('load', carregaEmailProfile)
        //window.addEventListener('load', () => {
         //   carregaGitProfile(carregaProfile);
         //   carregaEmail(carregaEmailProfile);

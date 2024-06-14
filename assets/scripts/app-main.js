@@ -1,32 +1,37 @@
-
 const ulProfile = 'https://api.github.com/users/chdbarbosa'
-let profiles = {}
+let dados = {}
+// function principalProfile() {
 
-function carregaGitProfile(func){
+//     fetch(ulProfile)
+//         .then(function () {
+//             dados = {
+//                 "name": "Christiano Barbosa",
+//                 "company": "Puc-Minas",
+//                 "location": "Contagem , MG, Brazil",
+//                 "bio": "Interessado em desenvolver carreira em ambiente cloud, containers, orquestradores e ferramentas de segurança nativos de cloud.",
+//                 "followers": 2
 
-    fetch(ulProfile)
-      .then (function (response) {return response.json()})
-      .then (function (dados){
-          profiles = dados
-          console.log('Dados Carregados')
-          func()
-      })
-}
+//             }
+//             console.log(dados);
+//             return dados;
 
+//         }
+//     )
+//     console.log(dados);
+//     return dados;
+// }
 
-const ulemail = 'https://api.github.com/user/emails'
-let emails = {};
-
-function carregaEmail(func){
-    fetch(ulemail,{
-        headers: {
-            Authorization: "Bearer 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"
-        },
-    })
-      .then (function (response) {return response.json()})
-      .then (function (email){
-          emails = email
-          console.log('Dados Carregados')
-          func()
-      })
+async function principalProfile() {
+   // Perform the fetch
+   try {
+        const response = await fetch(ulProfile);
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+        const data = await response.json();
+        return data;
+    } catch (error) {
+        console.error('Error fetching data:', error);
+        return {};
+    }
 }
