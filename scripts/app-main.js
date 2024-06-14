@@ -20,7 +20,7 @@ let emails = {};
 function carregaEmail(func){
     fetch(ulemail,{
         headers: {
-            Authorization: "Bearer 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"
+            Authorization: "Bearer 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"
         },
     })
       .then (function (response) {return response.json()})
